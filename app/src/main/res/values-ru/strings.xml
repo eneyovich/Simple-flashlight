@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Фонарик</string>
+    <string name="turn_off">Выкл</string>
+    <string name="turn_on">Вкл</string>
+</resources>
