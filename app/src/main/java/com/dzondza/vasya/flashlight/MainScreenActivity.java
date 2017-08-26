@@ -5,14 +5,14 @@ import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 
-/*
-simple flashlight for android Jelly Bean and older
+/**
+ * simple flashlight for android Jelly Bean and older
  */
 
 public class MainScreenActivity extends AppCompatActivity {
@@ -42,6 +42,7 @@ public class MainScreenActivity extends AppCompatActivity {
     }
 
 
+    //makes flashlight on
     private void flashlightOn() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             mCamera = Camera.open();
@@ -50,9 +51,10 @@ public class MainScreenActivity extends AppCompatActivity {
         } else {
             flashlightMarshmallow(true);
         }
-        mRelativeLayout.setBackground(getResources().getDrawable(R.drawable.flashlight_on_image));
+        mRelativeLayout.setBackground(getResources().getDrawable(R.drawable.drawable_flashlight_on));
     }
 
+    //makes flashlight off
     private void flashlightOff() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             if (mCamera != null) {
@@ -64,16 +66,19 @@ public class MainScreenActivity extends AppCompatActivity {
         } else {
             flashlightMarshmallow(false);
         }
-        mRelativeLayout.setBackground(getResources().getDrawable(R.drawable.flashlight_off_image));
+        mRelativeLayout.setBackground(getResources().getDrawable(R.drawable.drawable_flashlight_off));
     }
 
 
+    //sets camera parameters for camera
     private void cameraParameters(String flashMode) {
         Camera.Parameters parameters = mCamera.getParameters();
         parameters.setFlashMode(flashMode);
         mCamera.setParameters(parameters);
     }
 
+
+    //turns flashlight on/off for android versions marshmallow and upper
     private void flashlightMarshmallow(boolean onOrOff) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
