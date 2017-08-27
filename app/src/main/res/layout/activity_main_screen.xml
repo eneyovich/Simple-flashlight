@@ -9,23 +9,13 @@
     android:background="@drawable/drawable_flashlight_off"
     tools:context="com.dzondza.vasya.flashlight.MainScreenActivity">
 
-
-    <Switch
-        android:id="@+id/switch_button"
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/switch_on_off"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:layout_alignParentBottom="true"
         android:textOn="@string/turn_off"
         android:textOff="@string/turn_on"/>
-
-
-    <TextView
-        android:id="@+id/lightTextview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/switch_button"
-        android:layout_marginTop="60dp"/>
-
 
 </RelativeLayout>

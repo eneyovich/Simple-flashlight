@@ -7,12 +7,12 @@ import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 
 /**
- * simple flashlight for android Jelly Bean and older
+ * simple flashlight for android Jelly Bean and higher
  */
 
 public class MainScreenActivity extends AppCompatActivity {
@@ -26,7 +26,7 @@ public class MainScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-        Switch switchButton = (Switch) findViewById(R.id.switch_button);
+        SwitchCompat switchButton = (SwitchCompat) findViewById(R.id.switch_on_off);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout);
 
         switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
