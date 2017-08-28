@@ -18,7 +18,6 @@ import android.widget.RelativeLayout;
 public class MainScreenActivity extends AppCompatActivity {
 
     private Camera mCamera;
-    private CameraManager mCameraManager = null;
     private RelativeLayout mRelativeLayout;
 
     @Override
@@ -81,7 +80,7 @@ public class MainScreenActivity extends AppCompatActivity {
     //turns flashlight on/off for android versions marshmallow and upper
     private void flashlightMarshmallow(boolean onOrOff) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+            CameraManager mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
             try {
                 String[] cameraId = mCameraManager.getCameraIdList();
                 mCameraManager.setTorchMode(cameraId[0], onOrOff);
