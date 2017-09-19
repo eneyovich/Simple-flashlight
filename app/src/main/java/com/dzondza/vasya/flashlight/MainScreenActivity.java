@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
-import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 
 /**
@@ -28,14 +27,12 @@ public class MainScreenActivity extends AppCompatActivity {
         SwitchCompat switchButton = (SwitchCompat) findViewById(R.id.switch_on_off);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout);
 
-        switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if (isChecked) {
-                    flashlightOn();
-                } else {
-                    flashlightOff();
-                }
+
+        switchButton.setOnCheckedChangeListener((compoundButton, isChecked) -> {
+            if (isChecked) {
+                flashlightOn();
+            } else {
+                flashlightOff();
             }
         });
     }
